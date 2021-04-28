@@ -1,6 +1,7 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
+
 const MovieList = ({ movieData, movieSearch, ratingMovie }) => {
   return (
     <div
@@ -20,6 +21,7 @@ const MovieList = ({ movieData, movieSearch, ratingMovie }) => {
         .map((movie, i) => (
           <MovieCard key={i} movie={movie} />
         ))}
+        
     </div>
   );
 };

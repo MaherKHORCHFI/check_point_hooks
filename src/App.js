@@ -5,7 +5,8 @@ import SearchMovie from "./Components/SearchMovie";
 import { movieContainer } from "./Components/MovieContainer";
 import AddMovie from "./Components/AddModal/AddMovie";
 import "./App.css";
-
+import MovieDescription from "./Components/MovieDescription";
+import {Route} from 'react-router-dom'
 function App() {
   const [movieData, setMovieData] = useState(movieContainer);
   const [movieSearch, setMovieSearch] = useState("");
@@ -25,7 +26,13 @@ function App() {
         />
       </div>
       <AddMovie adding={adding} />
-      <MovieList movieData={movieData} movieSearch={movieSearch} ratingMovie={ratingMovie} />
+      <Route exact path='/' render={()=><MovieList movieData={movieData} movieSearch={movieSearch} ratingMovie={ratingMovie} />}    />
+      <Route 
+        path="/description/:id" 
+        render={(props) => <MovieDescription {...props} movieData = {movieData} />}
+      />
+
+            
     </div>
   );
 }
